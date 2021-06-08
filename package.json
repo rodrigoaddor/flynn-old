@@ -1,0 +1,51 @@
+{
+  "name": "flynn",
+  "version": "1.0.0",
+  "description": "A general purpose Discord bot",
+  "main": "main.js",
+  "repository": "https://github.com/rodrigoaddor/flynn",
+  "author": "Rodrigo Addor <rodrigotladdor@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "ts-node src/main"
+  },
+  "dependencies": {
+    "discord.js": "^13.0.0-dev",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.6.2",
+    "tsyringe": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.2",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.28.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "node-ts": "^5.1.1",
+    "prettier": "^2.3.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  },
+  "optionalDependencies": {
+    "@discordjs/opus": "^0.5.0",
+    "bufferutil": "^4.0.3",
+    "erlpack": "^0.1.3",
+    "mariadb": "^2.5.3",
+    "opusscript": "^0.0.8",
+    "sodium": "^3.0.2",
+    "sqlite3": "^5.0.2",
+    "utf-8-validate": "^5.0.5",
+    "zlib-sync": "^0.1.7"
+  },
+  "engines": {
+    "node": ">=16",
+    "yarn": ">=1.22",
+    "npm": "please-use-yarn"
+  },
+  "engineStrict": true
+}
