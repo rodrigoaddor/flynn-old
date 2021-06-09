@@ -8,10 +8,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "ts-node src/main"
+    "dev": "ts-node -r dotenv/config src/main"
   },
   "dependencies": {
-    "discord.js": "^13.0.0-dev",
+    "discord.js": "dev",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.6.2",
     "tsyringe": "^4.5.0"

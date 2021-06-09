@@ -8,5 +8,7 @@ declare namespace NodeJS {
     DB_DATABASE?: string;
     DB_DIALECT?: string;
     DB_STORAGE?: string;
+
+    TOKEN?: string;
   }
 }

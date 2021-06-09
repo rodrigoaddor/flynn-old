@@ -1,12 +1,13 @@
-import { Intents } from 'discord.js';
+import { IntentsString } from 'discord.js';
+import { PromiseOr } from '../utils/modules';
 
 export interface Module {
   name: string;
   description?: string;
-  intents?: Intents[];
+  intents?: IntentsString[];
 
-  onLoad?: () => void
-  onUnload?: () => void
-  onEnable?: () => void
-  onDisable?: () => void
+  onLoad?: () => PromiseOr<void>;
+  onUnload?: () => PromiseOr<void>;
+  onEnable?: () => PromiseOr<void>;
+  onDisable?: () => PromiseOr<void>;
 }
