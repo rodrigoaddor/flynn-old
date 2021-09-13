@@ -38,7 +38,7 @@ export const initialize = () => {
 
   if (DB_URL) {
     return new Sequelize(DB_URL, options);
-  } else {
+  } 
     return new Sequelize(options);
-  }
+  
 };

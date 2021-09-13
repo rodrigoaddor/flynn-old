@@ -1,4 +1,5 @@
 import { IntentsString } from 'discord.js';
+
 import { PromiseOr } from '../utils/modules';
 
 export interface Module {

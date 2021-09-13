@@ -4,9 +4,8 @@ import { container } from 'tsyringe';
 
 import { validateOptions, initialize } from './data/db';
 import { Module } from './data/module';
-import { getAllIntents, initModule } from './utils/modules';
-
 import * as _modules from './modules';
+import { getAllIntents, initModule } from './utils/modules';
 import { Bot, Database } from './utils/symbols';
 
 const { stdin } = process;

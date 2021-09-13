@@ -1,5 +1,6 @@
 import { Client, IntentsString, MessageReaction } from 'discord.js';
 import { container } from 'tsyringe';
+
 import { Module } from '../../data/module';
 import { Bot } from '../../utils/symbols';
 import { KarmaData } from './MemberKarma';
@@ -8,6 +9,7 @@ type KarmaEmojis = 'upvote' | 'downvote';
 
 export class Karma implements Module {
   readonly name = 'Karma';
+
   readonly intents: IntentsString[] = ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS'];
 
   static readonly emojis: Readonly<Record<KarmaEmojis, number>> = Object.freeze({
@@ -25,6 +27,8 @@ export class Karma implements Module {
 
   onEnable = () => {
     this.bot.on('messageReactionAdd', async (reaction, user) => {
+      if (reaction.partial) return;
+
       if (!Karma.isReaction(reaction)) return;
 
       const [data] = await KarmaData.findOrCreate({
@@ -37,7 +41,7 @@ export class Karma implements Module {
     });
 
     this.bot.on('messageReactionRemove', async (reaction, user) => {
-      if (!Karma.isReaction(reaction)) return;
+      if (reaction.partial || !Karma.isReaction(reaction)) return;
 
       await KarmaData.increment('karma', {
         where: { member: user.id },
@@ -46,8 +50,8 @@ export class Karma implements Module {
     });
 
     this.bot.on('messageReactionRemoveEmoji', async (reaction) => {
-      if (!Karma.isReaction(reaction)) return;
-      const users = (await reaction.users.fetch()).keyArray();
+      if (reaction.partial || !Karma.isReaction(reaction)) return;
+      const users = await reaction.users.fetch();
 
       await KarmaData.increment('karma', {
         where: { member: users },

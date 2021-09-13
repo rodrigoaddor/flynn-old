@@ -8,7 +8,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "ts-node -r dotenv/config src/main"
+    "dev": "ts-node -r dotenv/config src/main",
+    "lint": "eslint .",
+    "lint:fix": "yarn lint --fix"
   },
   "dependencies": {
     "discord.js": "^13.1.0",
