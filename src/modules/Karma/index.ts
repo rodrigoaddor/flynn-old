@@ -45,7 +45,7 @@ export class Karma implements Module {
 
       await KarmaData.increment('karma', {
         where: { member: user.id },
-        by: Karma.getReactionKarma(reaction),
+        by: Karma.getReactionKarma(reaction) * -1,
       });
     });
 
